@@ -36,8 +36,8 @@ public class TestCompute {
 	verify(mq).contains("string");	
   }
 
-    @Test
-  public void containsTrueTest(){
+  @Test
+  public void containsTrueTest1(){
 	MessageQueue mq=mock(MessageQueue.class);
 	c=new Compute(mq);
 	int counter=0;
@@ -50,5 +50,21 @@ public class TestCompute {
 	verify(mq).getAt(0);	
 
   }
+
+  @Test
+  public void containsTrueTest2(){
+	MessageQueue mq=mock(MessageQueue.class);
+	c=new Compute(mq);
+	int counter=0;
+	when(mq.size()).thenReturn(1);
+	when(mq.contains("string")).thenReturn(true);
+	when(mq.getAt(2)).thenReturn("string");
+	assertEquals(0,c.countNumberOfOccurrences("string"));
+	verify(mq, times(3)).size();
+	verify(mq).contains("string");
+	verify(mq).getAt(0);	
+
+  }
+
 
 }
