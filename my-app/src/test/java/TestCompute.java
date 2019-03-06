@@ -34,4 +34,16 @@ public class TestCompute {
 
   }
 
+    @Test
+  public void containsTrueTest(){
+	MessageQueue mq=mock(MessageQueue.class);
+	c=new Compute(mq);
+	int counter=0;
+	when(mq.size()).thenReturn(1);
+	when(mq.contains("string")).thenReturn(true);
+	when(mq.getAt(0)).thenReturn("string");
+	assertEquals(1,c.countNumberOfOccurrences("string"));
+
+  }
+
 }
