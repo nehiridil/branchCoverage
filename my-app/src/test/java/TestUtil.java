@@ -22,6 +22,12 @@ public class TestUtil {
 
   @Test(expected=RuntimeException.class)
   public void whileArgIs0() throws RuntimeException{
-  c.compute(0,1,2);
+  c.compute(0,1,2);}
+
+  @Test
+  public void testSum(){
+  assertTrue(c.compute(1,2,3));
   }
+
+
 }
