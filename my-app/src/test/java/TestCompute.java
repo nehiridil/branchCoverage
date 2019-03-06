@@ -21,6 +21,7 @@ public class TestCompute {
 	c=new Compute(mq);
 	when(mq.size()).thenReturn(0);
 	assertEquals(-1,c.countNumberOfOccurrences("string"));
+	verify(mq).size();
   }
 
 
@@ -31,7 +32,8 @@ public class TestCompute {
 	when(mq.size()).thenReturn(-1);
 	when(mq.contains("string")).thenReturn(false);
 	assertEquals(0,c.countNumberOfOccurrences("string"));
-
+	verify(mq).size();
+	verify(mq).contains("string");	
   }
 
     @Test
@@ -43,6 +45,9 @@ public class TestCompute {
 	when(mq.contains("string")).thenReturn(true);
 	when(mq.getAt(0)).thenReturn("string");
 	assertEquals(1,c.countNumberOfOccurrences("string"));
+	verify(mq, times(3)).size();
+	verify(mq).contains("string");
+	verify(mq).getAt(0);	
 
   }
 
