@@ -29,5 +29,11 @@ public class TestUtil {
   assertTrue(c.compute(1,2,3));
   }
 
+  @Test
+  public void testNotSum(){
+  assertFalse(c.compute(2,2,3));
+  }
+
+
 
 }
